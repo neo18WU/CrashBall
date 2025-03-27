@@ -11,4 +11,4 @@ The shader was created with an implementation of a vertexShader and a fragmentSh
 The first branch show you how to use the shader on a MeshStandardMaterial with a pre-compilation of the shader by replacing the original one with your own shader.
 
 See you soon for the next step...
-Thanks tu Visionary 3D
+Thanks to Visionary 3D
