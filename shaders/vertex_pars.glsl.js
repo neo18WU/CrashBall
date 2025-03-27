@@ -1,15 +1,7 @@
 
-
 export default /* glsl */`
-
-#define PI 3.1415926535897932384626433832795028841971693993751
-
 uniform float uTime;
 uniform float uFrequency;
-
-varying vec3 vPosition;
-varying vec3 vNormal;
-varying vec2 vUv;
 varying float vDisplacement;
 
 //	Classic Perlin 3D Noise 
@@ -114,33 +106,4 @@ float fresnel(float cos_theta_incident, float cos_critical, float refractive_rat
 
 	return mix(sqrtRs * sqrtRs, sqrtRp * sqrtRp, .5f);
 }
-
-void main() {
-	vec3 coords = normal;
-	coords.y += uTime;
-	vec3 noisePattern = vec3(cnoise(coords));
-
-    
-	float pattern = wave(noisePattern*uFrequency);
-
-
-	//vayring
-	vPosition = position;
-	vNormal = normal;
-	vUv = uv;
-
-	vDisplacement = pattern ;
-	
-	
-	//MVP
-	float displacement = vDisplacement;
-    vec3 newPosition = position;
-	newPosition +=  normal * vDisplacement;
-
-	//vec4 modelViewPosition = modelViewMatrix * vec4( vec3(newPosition), 1.0 );
-	//vec4 projectedPosition = projectionMatrix * modelViewPosition;
-	//gl_Position = projectedPosition; 
-    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4( vec3(newPosition), 1.0 ); 
-}
-
 `;
