@@ -132,7 +132,7 @@ uniforms = {
 /************Some Materials ***************************************************** */
 
 
-const material = new THREE.MeshPhongMaterial({
+const material = new THREE.MeshStandardMaterial({
   color: 0x6abbfa,
   shininess: 100,
   reflectivity:1,
